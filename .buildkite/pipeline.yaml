@@ -1,6 +1,8 @@
 steps:
   - label: ":hammer: Build"
-    command: npm run build
+    command: |
+      npm install
+      npm run build
     key: build
 
   - label: ":rocket: Deploy"
