@@ -1,7 +1,7 @@
 steps:
   - label: ":hammer: Build"
     command: |
-      apt install -y nodejs
+      apt install -y nodejs npm
       npm install
       npm run build
     key: build
