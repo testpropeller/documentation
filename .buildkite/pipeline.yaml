@@ -4,6 +4,8 @@ steps:
     command: |
       npm install
       npm run build
+      apt update
+      apt install -y zip
       zip -r bundle.zip build
     artifact_paths: bundle.zip
     plugins:
