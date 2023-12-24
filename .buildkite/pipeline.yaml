@@ -1,10 +1,13 @@
 steps:
   - label: ":hammer: Build"
+    key: build
     command: |
-      apt install -y nodejs npm
       npm install
       npm run build
-    key: build
+    artifact_paths: "./build"
+    plugins:
+      - docker#v5.9.0:
+          image: "node:21"
 
   - label: ":rocket: Deploy"
     command: echo "Launch!"
