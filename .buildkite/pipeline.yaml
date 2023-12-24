@@ -1,0 +1,9 @@
+steps:
+  - label: ":hammer: Build"
+    command: echo "Build the rocket"
+    key: build
+
+  - label: ":rocket: Deploy"
+    command: echo "Launch!"
+    key: deploy
+    depends_on: build
