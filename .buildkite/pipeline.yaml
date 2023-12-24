@@ -1,6 +1,6 @@
 steps:
   - label: ":hammer: Build"
-    command: echo "Build the rocket"
+    command: npm run build
     key: build
 
   - label: ":rocket: Deploy"
