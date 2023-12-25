@@ -4,10 +4,8 @@ steps:
     command: |
       npm install
       npm run build
-      apt update
-      apt install -y zip
-      zip -r bundle.zip build
-    artifact_paths: bundle.zip
+      tar -czvf bundle.tar.gz build
+    artifact_paths: bundle.tar.gz
     plugins:
       - docker#v5.9.0:
           image: "node:21"
