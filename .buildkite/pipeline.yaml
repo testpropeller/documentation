@@ -16,7 +16,7 @@ steps:
     depends_on: build
     command: |
       buildkite-agent artifact download bundle.tar.gz .
-      CONTAINER=$(buildah from alpine:3.19.0)
+      CONTAINER=$(buildah from docker.io/library/alpine:3.19)
       buildah copy $CONTAINER build /app
       buildah config --author "dennis@testpropeller.com" $CONTAINER
       buildah commit $CONTAINER testpropeller-documentation
