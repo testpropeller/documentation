@@ -11,7 +11,16 @@ steps:
           image: "node:21"
           user: node
 
+  - label: ":docker: Containerize"
+    key: containerize
+    command: |
+      buildkite-agent artifact download bundle.tar.gz .
+      ls -l
+      tar -xf bundle.tar.gz
+      ls -l
+      ls -l build
+
   - label: ":rocket: Deploy"
-    command: echo "Launch!"
     key: deploy
-    depends_on: build
+    depends_on: containerize
+    command: echo "Launch!"
