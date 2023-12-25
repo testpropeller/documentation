@@ -13,6 +13,7 @@ steps:
 
   - label: ":docker: Containerize"
     key: containerize
+    depends_on: build
     command: |
       buildkite-agent artifact download bundle.tar.gz .
       ls -l
