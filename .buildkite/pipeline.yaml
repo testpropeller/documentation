@@ -16,7 +16,7 @@ steps:
     depends_on: build
     command: |
       buildkite-agent artifact download bundle.tar.gz .
-      tar -xf bundle.tar.gz
+      tar -xvf bundle.tar.gz
       ./containerize.sh
       buildah images
 
