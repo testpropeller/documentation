@@ -16,11 +16,8 @@ steps:
     depends_on: build
     command: |
       buildkite-agent artifact download bundle.tar.gz .
-      CONTAINER=$(buildah from docker.io/library/alpine:3.19)
-      buildah copy $CONTAINER build /app
-      buildah config --author "dennis@testpropeller.com" $CONTAINER
-      buildah commit $CONTAINER testpropeller-documentation
-      buildah rm $CONTAINER
+      ./containerize.sh
+      docker images
 
   - label: ":rocket: Deploy"
     key: deploy
