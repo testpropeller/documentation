@@ -17,7 +17,7 @@ steps:
     command: |
       buildkite-agent artifact download bundle.tar.gz .
       ./containerize.sh
-      docker images
+      buildah images
 
   - label: ":rocket: Deploy"
     key: deploy
