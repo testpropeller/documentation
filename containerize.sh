@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONTAINER=$(buildah from docker.io/library/alpine:3.19)
+CONTAINER=$(buildah from docker.io/library/nginx:1.25.3-alpine)
 buildah copy "$CONTAINER" nginx.conf /etc/nginx
 buildah copy "$CONTAINER" build /app
 buildah config --author "dennis@testpropeller.com" "$CONTAINER"
