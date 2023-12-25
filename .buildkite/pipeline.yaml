@@ -18,7 +18,10 @@ steps:
       buildkite-agent artifact download bundle.tar.gz .
       tar -xvf bundle.tar.gz
       ./containerize.sh
-      buildah images
+      
+      doctl registry login --expiry-seconds	30 --access-token $$DIGITAL_OCEAN_PAT
+      buildah tag testpropeller-documentation registry.digitalocean.com/krasnov/testpropeller-documentation:$BUILDKITE_COMMIT
+      buildah push registry.digitalocean.com/krasnov/testpropeller-documentation:$BUILDKITE_COMMIT
 
   - label: ":rocket: Deploy"
     key: deploy
