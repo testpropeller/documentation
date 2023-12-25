@@ -10,6 +10,7 @@ steps:
     plugins:
       - docker#v5.9.0:
           image: "node:21"
+          user: node
 
   - label: ":rocket: Deploy"
     command: echo "Launch!"
