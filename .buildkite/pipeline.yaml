@@ -19,11 +19,15 @@ steps:
       tar -xvf bundle.tar.gz
       ./containerize.sh
       
-      doctl registry login --expiry-seconds	30 --access-token $$DIGITAL_OCEAN_PAT
+      doctl registry login --expiry-seconds 30 --access-token $$DIGITAL_OCEAN_PAT
       buildah tag testpropeller-documentation registry.digitalocean.com/krasnov/testpropeller-documentation:$BUILDKITE_COMMIT
       buildah push registry.digitalocean.com/krasnov/testpropeller-documentation:$BUILDKITE_COMMIT
+      
+      flyctl auth docker --access-token $$FLY_ACCESS_TOKEN
+      buildah tag testpropeller-documentation registry.fly.io/testpropeller-documentation:$BUILDKITE_COMMIT
+      buildah push registry.fly.io/testpropeller-documentation:$BUILDKITE_COMMIT
 
   - label: ":rocket: Deploy"
     key: deploy
     depends_on: containerize
-    command: echo "deploy!"
+    command: fly deploy --app testpropeller-documentation --image registry.fly.io/testpropeller-documentation:$BUILDKITE_COMMIT
