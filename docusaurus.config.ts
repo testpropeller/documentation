@@ -125,6 +125,15 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
+
+  scripts: [
+    {
+      src: '/plausible/script.js',
+      defer: true,
+      'data-api': '/plausible/event',
+      'data-domain': 'testpropeller.com',
+    },
+  ],
 };
 
 export default config;
