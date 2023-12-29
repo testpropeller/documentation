@@ -90,6 +90,10 @@ const config: Config = {
                             label: 'Blog',
                             to: '/blog',
                         },
+                        {
+                            label: 'Pricing',
+                            to: '/pricing',
+                        },
                     ],
                 },
                 {
