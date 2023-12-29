@@ -1,43 +1,35 @@
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
 
-import styles from './index.module.css';
+import {ReactElement} from "react";
+import HomepageHeader from "@site/src/components/HomepageHeader";
 
-function HomepageHeader() {
-    const {siteConfig} = useDocusaurusContext();
+export default function Home(): ReactElement {
     return (
-        <header className={clsx('hero hero--primary', styles.heroBanner)}>
-            <div className="container">
-                <Heading as="h1" className="hero__title">
-                    {siteConfig.title}
-                </Heading>
-                <p className="hero__subtitle">{siteConfig.tagline}</p>
-                <div className={styles.buttons}>
-                    <Link
-                        className="button button--secondary button--lg"
-                        to="/docs">
-                        Quickstart
-                    </Link>
-                </div>
-            </div>
-        </header>
+        <Layout
+            title={`Integration tests made fast and reliable`}
+            description="Give each test its own prod-like environment in milliseconds.">
+            <HomepageHeader/>
+            <main>
+                <IntegratesWithStack/>
+                <Pricing/>
+            </main>
+        </Layout>
     );
 }
 
-export default function Home(): JSX.Element {
-    const {siteConfig} = useDocusaurusContext();
+function IntegratesWithStack(): ReactElement {
     return (
-        <Layout
-            title={`Hello from ${siteConfig.title}`}
-            description="Description will go into a meta tag in <head />">
-            <HomepageHeader />
-            <main>
-                <HomepageFeatures />
-            </main>
-        </Layout>
+        <div>
+            <h2>Integrates with your stack</h2>
+            <button>Read the docs</button>
+        </div>
+    );
+}
+
+function Pricing(): ReactElement {
+    return (
+        <div>
+            <h2>Simple and transparent pricing</h2>
+        </div>
     );
 }
