@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Test Propeller',
-  tagline: 'Dinosaurs are cool',
+  tagline: 'Give each test its own prod-like environment in milliseconds.',
   favicon: 'img/favicon.ico',
 
   url: 'https://testpropeller.com',
